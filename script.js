@@ -6,7 +6,7 @@ const GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSVfVa
 
 // --- CONSTANTE DE DATE LIMITE (MODIFIÉE) ---
 // Date : 19 octobre 2025 à 11h57 (Le mois est 0-indexé, donc octobre est 9)
-const DEADLINE = new Date(2025, 9, 19, 19, 0, 0); 
+const DEADLINE = new Date(2025, 9, 20, 11, 30, 0); 
 
 
 // -------------------------------------------------------------------
@@ -167,4 +167,5 @@ function updateInscriptionButton() {
 
 // Lancer la mise à jour des boutons au chargement de la page
 document.addEventListener('DOMContentLoaded', updateInscriptionButton);
+
 // CORRECTION : L'accolade '}' en trop a été supprimée d'ici.
