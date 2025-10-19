@@ -1,0 +1,355 @@
+/* =========================================================
+   STYLE GLOBAL — ETNA TOURNAMENT
+   ========================================================= */
+
+/* --- Réglages de base --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* --- Page d’accueil centrée verticalement --- */
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: #333333; /* Couleur de secours pour le body principal */
+    overflow-x: hidden;
+}
+
+/* Pseudo-élément pour l'image de fond floue sur toute la page */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background.png'); /* L'image de fond floue */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    filter: blur(5px); /* LE FLOU EST APPLIQUÉ ICI ! */
+    z-index: -1; /* Derrière tout le contenu */
+}
+
+
+/* --- Page inscription : désactive le centrage vertical --- */
+body.page-scrollable {
+  display: block;
+  text-align: center;
+}
+
+/* =========================================================
+   BLOC PRINCIPAL (hero-block)
+   ========================================================= */
+.hero-block {
+  /* MODIFICATIONS CLÉS ICI pour le fond non flouté */
+  background-image: url('background.png'); /* NOUVEAU : La même image de fond, mais ICI non floutée */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; /* TRÈS IMPORTANT : Permet d'aligner cette image avec celle du body */
+  
+  /* Retirons le background-color opaque qui masquait le fond */
+  /* background-color: rgba(18, 20, 29, 0.9); */ 
+
+  box-shadow: 0 10px 20px rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 8px;
+
+  max-width: 900px;
+  width: 90%;
+  margin: 5vh auto 20px auto; 
+  min-height: 70vh; 
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  position: relative;
+  z-index: 1; /* S'assure qu'il est au-dessus du fond flou du body */
+}
+
+/* S'assurer que le logo/image dans hero-block est bien stylisé */
+.hero-block img {
+    max-width: 100%; /* L'image ne dépasse pas son conteneur */
+    height: auto;
+    display: block; /* Évite les espaces sous l'image */
+    margin-bottom: 20px; /* Un peu d'espace sous le logo */
+}
+
+.hook-phrase {
+  font-size: 1.2em;
+  font-style: italic;
+  color: #fafafa; 
+  margin-bottom: 10px;
+}
+/* Couleur pour le titre du prochain tournoi */
+.hero-block h2 {
+  color: red;
+}
+/* CORRECTION ICI : Ajout du point devant 'game-info' */
+.game-info .logo-bar .logo { /* Ciblage plus spécifique pour être sûr de n'affecter que ceux-là */
+    max-width: 250px; /* Redimensionne les logos de jeux à une largeur maximale de 120px (ajuste cette valeur) */
+    height: auto; /* Maintient les proportions */
+    margin: 10px 0; /* Marge de 10px en haut et en bas, auto sur les côtés */
+    display: block; /* Pour qu'ils prennent leur propre ligne si tu veux qu'ils soient au-dessus du h2 */
+}
+
+/* Si tu veux que les logos soient côte à côte dans une bar, tu peux ajuster .logo-bar */
+.logo-bar {
+    display: flex;
+    justify-content: center; /* Centre les logos si plusieurs */
+    align-items: center;
+    margin-bottom: 10px; /* MODIF : Ajout de la fin de la ligne qui manquait */
+}
+
+/* Si tu veux que les logos soient côte à côte dans une bar, tu peux ajuster .logo-bar */
+.logo-bar {
+    display: flex;
+    justify-content: center; /* Centre les logos si plusieurs */
+    align-items: center;
+    margin-bottom: 10px; /* Espace entre la barre de logo et le titre */
+}
+/* =========================================================
+   BOUTONS
+   ========================================================= */
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.button-link {
+  display: inline-block;
+  background-color: #3c5ffa86;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 18px 45px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.button-link:hover {
+  background-color: #012fff86;
+  transform: scale(1.03);
+}
+
+/* =========================================================
+   FORMULAIRE (iframe)
+   ========================================================= */
+.form-iframe {
+  width: 90%;
+  height: 800px; /* Tu peux ajuster cette hauteur selon le contenu de ton formulaire */
+  border: none;
+  border-radius: 8px;
+  margin-top: 1px;
+}
+
+/* =========================================================
+   LIENS SECONDAIRES
+   ========================================================= */
+.secondary-links {
+  margin-top: 30px;
+  padding-top: 1px;
+  border-top: 1px dashed #eee;
+}
+
+.small-link,
+.school-tag {
+  font-size: 0.9em;
+  color: #fd0202ec; /* MODIF : Peut-être ajuster la couleur pour une meilleure lisibilité sur le fond sombre du hero-block */
+  text-decoration: none;
+}
+
+.small-link:hover {
+  text-decoration: underline;
+}
+
+.school-tag {
+  display: block;
+  margin-top: 10px;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+@media (max-width: 600px) {
+  .hero-block {
+    padding: 15px;
+    min-height: auto; /* sur mobile, pas besoin d’imposer la hauteur */
+    margin: 5vh auto; /* Ajuste la marge pour les mobiles */
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .button-link {
+    width: 100%;
+  }
+
+  .form-iframe {
+    height: 1000px;
+  }
+}
+
+/* =========================================================
+   NOUVEAUX STYLES DES BOUTONS ET DU CLASSEMENT
+   ========================================================= */
+
+/* --- Conteneur du bouton "Suivre" (pour le centrage) --- */
+.follow-button-container {
+    text-align: center;
+    margin: 20px 0; /* Espace au-dessus et en dessous */
+}
+
+/* --- Style du bouton VERT "Suivre le tournois" --- */
+.button-green {
+  background-color: #2ecc7186; /* Un vert agréable */
+  padding: 12px 30px; /* Un peu plus petit pour le différencier des 'button-big' */
+}
+
+.button-green:hover {
+  background-color: #27ae6086;
+  transform: scale(1.05);
+}
+
+/* --- Style du bouton ROUGE "Inscriptions fermées" (remplace le bleu) --- */
+.button-closed {
+  background-color: #e74c3c; /* Rouge ferme */
+  cursor: default; /* Indique qu'il n'est pas cliquable */
+}
+
+.button-closed:hover {
+  background-color: #c0392b; /* Rouge plus foncé au survol */
+  transform: none; /* Pas d'effet de scale */
+}
+
+/* --- Style de la nouvelle section de classement (<main>) --- */
+main#tournois {
+    margin: 0 auto;
+    max-width: 900px;
+    width: 90%;
+    padding-bottom: 50px; /* Espace en bas de page */
+}
+
+/* Style de l'h1 pour la page de classement */
+.page-title {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Style spécifique au bloc de classement pour le différencier si besoin */
+.ranking-block {
+    background: rgba(18, 20, 29, 0.9); /* Un fond sombre plus opaque pour la lisibilité du tableau */
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Style du tableau de classement */
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #ecf0f1;
+    text-align: left;
+}
+
+.ranking-table th,
+.ranking-table td {
+    padding: 12px;
+    border-bottom: 1px solid #34495e;
+}
+
+.ranking-table th {
+    background-color: #3498db;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.ranking-table tr:nth-child(even) {
+    background-color: rgba(44, 62, 80, 0.4); /* Bandes alternées */
+}
+
+.ranking-table tr:hover {
+    background-color: rgba(44, 62, 80, 0.7);
+}
+
+/* Centrage des colonnes de chiffres */
+.ranking-table td:nth-child(3), 
+.ranking-table td:nth-child(4), 
+.ranking-table td:nth-child(5) {
+    text-align: center;
+}
+
+/* =========================================================
+   STYLES POUR LE DOUBLE AFFICHAGE (AJOUTÉ)
+   ========================================================= */
+
+.dual-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet de passer à la ligne sur petits écrans */
+    justify-content: space-between; /* Crée un espace entre les colonnes */
+    gap: 20px; /* Espace entre les blocs */
+}
+
+.dual-column {
+    flex-basis: 100%; /* Par défaut (mobile), prend 100% de la largeur */
+    min-width: 300px; /* Largeur minimale */
+}
+
+/* Style uniforme pour les titres des colonnes */
+.dual-column .page-title {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+/* --- Responsive pour les écrans plus larges --- */
+/* (La largeur max de base est 900px, donc on s'active au-dessus) */
+@media (min-width: 940px) { 
+    .dual-column {
+        /* Chaque colonne prend 50% de la largeur, moins un peu d'espace */
+        flex-basis: calc(50% - 20px); 
+    }
+}
+
+/* =========================================================
+   FLÈCHE RETOUR AU-DESSUS DU FORMULAIRE
+   ========================================================= */
+.form-back-button {
+  display: block; /* Prend sa propre ligne */
+  text-align: left; /* Aligne la flèche à gauche */
+  
+  /* Utilise les mêmes marges que l'iframe pour un alignement parfait */
+  width: 90%; 
+  margin: 0 auto 0px auto; /* 15px d'espace sous la flèche */
+}
+
+.form-back-button img {
+  width: 40px;  /* Taille de la flèche (ajustez si besoin) */
+  height: auto;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.form-back-button:hover img {
+  transform: scale(1.1); /* Effet au survol */
+}

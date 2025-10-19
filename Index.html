@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETNA TOURNAMENT - Accueil</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+</head>
+
+<body>
+
+  <div class="hero-block">
+    <a href="Index.html" style="display: block; line-height: 0;"> 
+  <img src="logo.png" alt="ETNA TOURNAMENT Logo" style="width:100%;">
+</a>
+    <p class="hook-phrase">Toute l'actualité de votre tournois préféré est ici. Le code c'est bien, mais la victoire est meilleure.</p>
+    <h2>Prochain tournois : Vendredi 25 octobre 2025</h2>
+    <div class="game-info">
+        <div class="logo-bar">
+            <img src="league-of-legends.png" alt="Logo League of Legends" class="logo">
+        </div>
+    </div>
+
+    <div class="button-container">
+      <a href="inscription.html" class="button-link button-big">Inscriptions ouvertes</a>
+      <a href="vote.html" class="button-link button-big">Votez pour le prochain jeu</a>
+    </div>
+
+    <div class="follow-button-container" style="display: none;">
+      <a href="#tournois" id="follow-tournament-button" class="button-link button-green button-small">
+          Suivre le tournois
+      </a>
+    </div>
+
+    <div class="secondary-links">
+      <a href="règlement.html" class="small-link">Règlement</a>
+      <a href="https://etna.io/" class="school-tag">Propulsé par ©ETNA</a>
+    </div>
+
+  </div> <main id="tournois" style="display: none;">
+    
+    <div class="dual-container">
+
+        <div class="dual-column">
+            <h1 class="page-title">Classement</h1>
+            <div class="ranking-block">
+                <div id="classement">
+                    </div>
+            </div>
+        </div>
+
+        <div class="dual-column">
+            <h1 class="page-title">Arbre du Tournoi</h1>
+            <div class="ranking-block">
+                <iframe 
+                  src="https://challonge.com/fr/h07j9c0m/module" 
+                  width="100%" 
+                  height="600" 
+                  frameborder="0" 
+                  scrolling="auto" 
+                  allowtransparency="true"
+                  style="border-radius: 8px;">
+                </iframe>
+            </div>
+        </div>
+
+
+
+    </div> </main> <script src="script.js?v=2.0"></script>
+</body>
+</html>
